@@ -1,0 +1,62 @@
+/*Define a structure Task with fields: char name[30] and enum Status { TODO, IN_PROGRESS, DONE }. 
+Create an array of tasks and write a function to:
+Print all tasks Change the status of a task by name*/
+
+#include<stdio.h>
+#include<string.h>
+enum status { TODO, IN_PROGRESS, DONE };
+typedef struct task
+{
+    char name[30];
+    enum status stat;
+}t;
+
+char* getstat(enum status stat)
+{
+    switch (stat) 
+    {
+        case TODO: return "TODO";
+        case IN_PROGRESS: return "IN_PROGRESS";
+        case DONE: return "DONE";
+        default: return "UNKNOWN";
+    }
+}
+
+int main()
+{
+    t func[]={
+        {"processing",TODO},
+        {"call_back",TODO},
+
+    };
+    for (int i = 0; i < 2 ; i++)
+    {
+        char *v;
+        v=getstat(func[i].stat);
+        printf("task -> %s \t",func[i].name);
+        printf("%s \n",v);
+
+    }
+    char s,w[50];
+    int t;
+    printf("want to do status update ?");
+    scanf("%c",&a);
+    if (s=='y')
+    {
+        printf(" enter task name : ");
+        scanf("%s",&w);
+        for (int i = 0; i < 2; i++)
+        {
+            if(strcmp(w,func[i].name)==0)
+            {
+                printf("enter status \n 0 -> TODO \n 1 -> IN_PROGRESS \n 2 -> DONE  ");
+                scanf("%d",&t);
+                
+            }
+        }
+        
+    }
+    
+    
+    return 0;
+}
